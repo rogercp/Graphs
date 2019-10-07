@@ -48,12 +48,25 @@ class Graph:
                 self.dft_recursive(neighbor,visited)
 
     def bfs(self, starting_vertex, destination_vertex):
-        """
-        Return a list containing the shortest path from
-        starting_vertex to destination_vertex in
-        breath-first order.
-        """
-        pass  # TODO
+        que = Queue()
+        visited = []
+        que.enqueue([starting_vertex])
+
+        while que.size() > 0:
+            path = q.dequeue()
+            node = path[-1]
+
+            if node not in visited:
+                neighbors = self.vertices[node]
+                for neighbor in neighbors:
+                    nextPath = list(path)
+                    nextPath.append(neighbor)
+                    que.enqueue(nextPath)
+                    if neighbor == destination_vertex:
+                        return nextPath
+                visited.append(node)
+        return None
+                
     def dfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing a path from
