@@ -26,13 +26,19 @@ class Graph:
                 for nextnode in self.vertices[v]:
                     que.enqueue(nextnode)
         return visited
-        
+
     def dft(self, starting_vertex):
-        """
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
-        """
-        pass  # TODO
+        stk = Stack()
+        visited = []
+        stk.push(starting_vertex)
+        while not stk.len() == 0:
+            v = stk.pop()
+            if v is not in visited:
+                visited.append(v)
+                for nextnode in self.vertices[v]:
+                    stk..push(nextnode)
+        return visited
+
     def dft_recursive(self, starting_vertex):
         """
         Print each vertex in depth-first order
