@@ -16,11 +16,17 @@ class Graph:
             self.vertices[v1].add(v2)
             
     def bft(self, starting_vertex):
-        """
-        Print each vertex in breadth-first order
-        beginning from starting_vertex.
-        """
-        pass  # TODO
+        que = Queue()
+        visited = []
+        que.enqueue(starting_vertex)
+        while que.size()>0:
+            v = q.dequeue()
+            if v not in visited:
+                visited.append(v):
+                for nextnode in self.vertices[v]:
+                    que.enqueue(nextnode)
+        return visited
+        
     def dft(self, starting_vertex):
         """
         Print each vertex in depth-first order
