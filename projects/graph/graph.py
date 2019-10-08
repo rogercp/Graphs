@@ -20,9 +20,9 @@ class Graph:
         visited = []
         que.enqueue(starting_vertex)
         while que.size()>0:
-            v = q.dequeue()
+            v = que.dequeue()
             if v not in visited:
-                visited.append(v):
+                visited.append(v)
                 for nextnode in self.vertices[v]:
                     que.enqueue(nextnode)
         return visited
@@ -31,12 +31,12 @@ class Graph:
         stk = Stack()
         visited = []
         stk.push(starting_vertex)
-        while not stk.len() == 0:
+        while not stk.isEmpty():
             v = stk.pop()
-            if v is not in visited:
+            if v not in visited:
                 visited.append(v)
                 for nextnode in self.vertices[v]:
-                    stk..push(nextnode)
+                    stk.push(nextnode)
         return visited
 
     def dft_recursive(self, starting_vertex,visited = None):
@@ -53,7 +53,7 @@ class Graph:
         que.enqueue([starting_vertex])
 
         while que.size() > 0:
-            path = q.dequeue()
+            path = que.dequeue()
             node = path[-1]
 
             if node not in visited:
