@@ -68,12 +68,28 @@ class Graph:
         return None
                 
     def dfs(self, starting_vertex, destination_vertex):
-        """
-        Return a list containing a path from
-        starting_vertex to destination_vertex in
-        depth-first order.
-        """
-        pass  # TODO
+        stk = Stack()
+        visited = []
+        stk.push([starting_vertex])
+
+        while stk.size() > 0:
+            path = stk.pop()
+            node = path[-1]
+
+            if node not in visited:
+                neighbors = self.vertices[node]
+                for neighbor in neighbors:
+                    nextPath = list(path)
+                    nextPath.append(neighbor)
+                    stk.push(nextPath)
+                    if neighbor == destination_vertex:
+                        return nextPath
+                visited.append(node)
+        return None
+
+
+
+
 
 
 
